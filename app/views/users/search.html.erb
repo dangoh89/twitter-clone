@@ -1,0 +1,21 @@
+<%= render 'layouts/navigation' %>
+
+<h1>Search results</h1>
+
+<% if @users %>
+    <% if @users.size > 0 %>
+        <div>
+            <table>
+                <tbody>
+                    <% @users.each do |user| %>
+                    <tr>
+                        <td><strong>Name:</strong> <%= user.username %></td>
+                        <td><strong>Email:</strong> <%= user.email %></td>
+                        <td><%= link_to "View Profile", user_path(user), class: "btn btn-xs btn-success" %>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    <% end %>
+<% end %>

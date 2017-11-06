@@ -1,0 +1,11 @@
+<h1>Write a new tweet</h1>
+
+<%= form_for @twit do |f| %>
+    <p>
+        <%= f.label :message %><br/>
+        <%= f.text_field :message %>
+    </p>
+    
+    <%= f.submit 'Create tweet' %>
+    
+<% end %>

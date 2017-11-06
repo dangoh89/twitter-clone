@@ -1,0 +1,32 @@
+<% if current_user %>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Home", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "My Tweets",user_twits_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <%= form_tag search_followers_path, method: :get do %>
+      <form class="form-inline my-2 my-lg-0">
+        <%= text_field_tag :search_param, params[:search_param], placeholder: 'search for a user', autofocus: true %>
+        <%= button_tag 'Search', type: 'submit', class: "btn btn-sm btn-success" %>
+      </form>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<% end %>

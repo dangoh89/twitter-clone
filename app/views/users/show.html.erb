@@ -1,0 +1,23 @@
+<%= render 'layouts/navigation' %>
+
+<div class ="container text-center">
+    
+<h2>Profile Page of <%= @user.username %></h2>
+
+<% if current_user.id != @user.id %>
+    <% if current_user.not_followers_with?(@user.id) %>
+        <%= link_to "Follow", add_follower_path(user: current_user, follower: @user), class: "btn btn-xs btn-success", method: :post %>
+        <% else %>
+        <%= link_to 'Unfollow', friendship_path(@user.id), 
+                                method: :delete, class: "btn btn-xs btn-danger" %>
+    <% end %>
+<% end %>
+    
+<p><%= @user.username %>'s tweets</p>
+
+<% @user.twits.each do |twit| %>
+    <p><%= twit.user.username %> wrote:</p>
+    <p><%= render_with_hashtags(twit.message) %></p>
+<% end %>
+
+</div>

@@ -1,0 +1,8 @@
+<%= render 'layouts/navigation' %>
+
+<div class ="container text-center">
+    <% @twits.each do |twit| %>
+        <p><%= twit.user.username %> wrote:</p>
+        <p><%= render_with_hashtags(twit.message) %></p>
+    <% end %>    
+</div>

@@ -1,13 +1,11 @@
 <%= render 'layouts/navigation' %>
 
 <div class ="container text-center">
-    
+
 <p><%= current_user.username %>'s tweets</p>
 
-<% @twits.each do |twit| %>
-        <p><%= render_with_hashtags(twit.message) %></p>
-        <p>Created <%= time_ago_in_words(twit.created_at)%> ago on 
-        <%= twit.updated_at.to_date.to_s + " " + twit.updated_at.strftime("%I:%M%p").to_s %></p>
-<% end %>
+<div><%= render 'twits/twit_create' %></div>
+
+<div><%= render 'twits/twits_show' %></div>
 
 </div>

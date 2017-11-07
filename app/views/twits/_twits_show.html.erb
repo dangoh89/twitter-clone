@@ -1,0 +1,9 @@
+<div id ="new-tweet">
+<% @twits.each do |twit| %>
+        <p><%= render_with_hashtags(twit.message) %></p>
+        <p>Created <%= time_ago_in_words(twit.created_at)%> ago on
+        <%= twit.updated_at.to_date.to_s + " " + twit.updated_at.strftime("%I:%M%p").to_s %></p>
+        <p><%= link_to 'Edit', edit_twit_path(twit) %></p>
+        <p><%= link_to 'Delete', twit_path(twit), method: :delete %></p>
+<% end %>
+</div>

@@ -22,7 +22,7 @@ end
 RSpec.describe Tag, type: :model do
 
   let(:subject) { create(:tag) }
-  
-  it { is_expected.to have_many(:twit_tags) }
-  it { is_expected.to have_many(:twits) }
+
+  #it { is_expected.to have_many(:twit_tags) }
+  #it { is_expected.to have_many(:twits) }
 end
